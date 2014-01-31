@@ -1,0 +1,442 @@
+body {
+	font-family: Helvetica;
+	background-color: #DDDBCF;
+	margin: 0px;
+    padding: 0px;
+}
+
+/* The black header at the top. */
+#header {
+	background: url("header_bg.png");
+	width: 768px;
+	height: 44px;
+	-webkit-box-shadow: 0px 3px 40px rgba(0,0,0,0.4);
+	position: fixed;
+	z-index: 9;
+	display: table;
+	padding: 0px;
+}
+
+/* The grid view of folios. */
+#grid {
+	background: url("bg.png") repeat; /* The bookshelf background. */
+	width: 768px;
+	min-height: 960px;
+	background-position: 0px 180px;
+	padding-top: 44px;
+}
+
+/* The button bar used to toggle between one-up and grid view. */
+.navbar {
+	white-space:nowrap;
+	vertical-align: middle;
+	display: table-cell;
+	position: relative;
+	left: 15px;
+}
+
+.navbar div {
+	display: inline-block;
+}
+
+/* The off state icon of the one-up view button. */
+.view-toggle-big-off {
+	background: url("view_toggle_big_off.png") no-repeat;
+	background-size: 46px 29px;
+	width: 46px;
+	height: 29px;
+}
+
+/* The selected state icon of the one-up view button. */
+.view-toggle-big-on {
+	background: url("view_toggle_big_on.png") no-repeat;
+	background-size: 46px 29px;
+	width: 46px;
+	height: 29px;
+}
+
+/* The off state icon of the grid view button. */
+.view-toggle-grid-off {
+	background: url("view_toggle_grid_off.png") no-repeat;
+	background-size: 46px 29px;
+	width: 46px;
+	height: 29px;
+}
+
+/* The selected state icon of the grid view button. */
+.view-toggle-grid-on {
+	background: url("view_toggle_grid_on.png") no-repeat;
+	background-size: 46px 29px;
+	width: 46px;
+	height: 29px;
+}
+
+.black-button {
+	background: url("button_black.png") no-repeat;
+	width: 69px;
+	height: 26px;
+}
+.blue-button {
+	background: url("button_blue.png") no-repeat;
+	width: 69px;
+	height: 26px;
+}
+
+#edit-button {
+	white-space:nowrap;
+	float: right;
+	margin-top: 8px;
+	margin-right: 15px;
+}
+
+.toggle-button {
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 12px;
+	text-align: center;
+	padding-top: 6px;
+	width: 69px;
+	height: 26px;
+}
+
+#header-drop-down {
+	float: right;
+	margin-right: 15px;
+}
+
+/* The icon to open the drop down. */
+.drop-down {
+	background: url("button_drop_down.png") no-repeat;
+	width: 24px;
+	height: 23px;
+	margin-top: 7px;
+}
+
+.drop-down div {
+	display: none;
+}
+
+.drop-down-menu {
+	position: absolute;
+	z-index: 10;
+}
+
+.drop-down-menu-background {
+	-webkit-box-shadow: 0px 3px 40px rgba(0,0,0,0.4);
+	-webkit-border-radius: 8px;
+	background-color: #292929;
+	padding: 5px;
+}
+
+.drop-down-menu-inner-background {
+	background-color: #ffffff;
+	-webkit-border-radius: 8px;
+	-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, .6);
+}
+
+.drop-down-menu-inner-background .item {
+	height: 30px;
+	padding: 10px 10px 0px 15px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.drop-down-menu-inner-background .item-first {
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.drop-down-menu-inner-background .item-last {
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+.drop-down-menu-inner-background .selected {
+	background: url("menu_item_bg_selected.png");
+	color: #ffffff;
+}
+
+.drop-down-menu-inner-background hr {
+	height: 1px;
+	color: #888888;
+	background-color: #888888;
+	border: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.drop-down-menu-inner-background .flip-switch {
+	float: right;
+}
+
+.drop-down-menu-inner-background .control-label {
+	padding-top: 3px;
+	float: left;
+}
+
+/* Horizontal switch with on/off states. */
+.flip-switch {
+	background: url("flip_switch_bg.png") no-repeat;
+	background-size: 146px 22px;
+	background-position: -3px 0px;
+	width: 90px;
+	height: 22px;
+	-webkit-border-radius: 4px;
+	border-style: solid;
+	border-color: #979797;
+	border-width: 1px;
+	-webkit-transition: background-position .15s;
+}
+
+/* Item renderer used to display an individual folio in the grid. */
+.folio-item-view {
+	width: 160px;
+	height: 222px;
+	-webkit-transform: translate3d(0, 0, 0);
+}
+
+.folio-shadow, .folio-thumb, .folio-item-view, .folio-archive {
+	position: absolute;
+}
+
+/* The delete "X" icon for the folio. */
+.folio-archive {
+	background: url("icon_delete.png") no-repeat;
+	left: 139px;
+	top: -21px;
+	display: none;
+	z-index: 1;
+	width: 41px;
+	height: 41px;
+}
+
+/* The triangular shadow PNG behind the folio cover. */
+.folio-shadow {
+	background: url("folio_shadow.png") no-repeat;
+	left: 146px;
+	top: -8px;
+	display: none;
+	width: 35px;
+	height: 244px;
+}
+
+/* The container for the download progress bar. The background greys out the folio cover. */
+.folio-item-view .download-status {
+	background: rgba(0, 0, 0, .4);
+	width: 153px;
+	height: 22px;
+	position: absolute;
+	padding-left: 7px;
+	padding-top: 200px;
+	-webkit-transition: opacity .1s ease-out;
+}
+
+/* The background track of the download status. */
+.folio-item-view .progress-track {
+	background: url("progress_track_120.png") no-repeat;
+	width: 120px;
+	height: 9px;
+	float: left;
+}
+
+.download-status-close {
+	background: url("button_close.png") no-repeat;
+}
+
+.download-status-restart {
+	background: url("button_restart.png") no-repeat;
+}
+
+/* Container that holds the one-up view. */
+#large-view-wrapper {
+	overflow: hidden;
+	width: 768px;
+	height: 980px;
+	position: relative;
+}
+
+/* Container that holds the folio items in one-up view. */
+#large-view {
+	width: 768px;
+	height: 980px;
+}
+
+/* Item renderer for individual folios in one-up view. */
+.large-folio-item-view  {
+	width: 630px;
+	position: absolute;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+	top: 54px;
+}
+
+.large-folio-item-view .magazine-title {
+	color: #333333;
+	font-weight: bold;
+	padding-top: 10px;
+	text-shadow: 0px 1px 0px rgb(255,255,255);
+	width: 531px;
+	-webkit-transition: opacity .1s ease-out;
+}
+
+.large-folio-item-view .off-fade {
+	background-color: #000000;
+	-webkit-transition: opacity .1s ease-out;
+	position: absolute;
+	z-index: 9;
+	width: 600px;
+	height: 800px;
+	top: 0px;
+	left: 0px;
+}
+
+/* The background track of the download status. */
+.large-folio-item-view .progress-track {
+	background: url("progress_track_152.png") no-repeat;
+	width: 170px;
+	height: 10px;
+	float: left;
+	white-space: nowrap;
+}
+
+.folio-item-view .download-status-close, .folio-item-view .download-status-restart {
+	width: 31px;
+	height: 31px;
+	float: right;
+	position: relative;
+	left: -2px;
+	top: -11px;
+}
+
+.large-folio-item-view .download-status {
+	width: 183px;
+	height: 22px;
+	margin-top: 5px;
+}
+
+.large-folio-item-view .download-status-close, .large-folio-item-view .download-status-restart {
+	width: 31px;
+	height: 31px;
+	float: right;
+	position: relative;
+	left: 0px;
+	top: -22px;
+}
+
+.progress-track div {
+	margin-right: 0px;
+	float: left;
+}
+
+.progress-bar-left {
+	background: url("progress_bar_left.png") no-repeat;
+	width: 4px;
+	height: 10px;
+}
+
+.progress-bar-middle {
+	background: url("progress_bar_middle.png");
+	height: 10px;
+}
+
+.progress-bar-right {
+	background: url("progress_bar_right.png") no-repeat;
+	width: 4px;
+	height: 10px;
+}
+
+.modal-background {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0);
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 9;
+	display: none;
+}
+
+/* Styles for the subscription dialog. */
+.dialog {
+    position: fixed;
+    width: 240px;
+    padding: 10px 5px 10px 5px;
+    z-index: 10;
+    color: #FFFFFF;
+    text-align: center;
+	background: rgba(10, 24, 59, .9);
+    border: 2px solid #DEE1E6;
+    -webkit-border-radius: 15px;
+    -webkit-box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    -webkit-transform: scale(0);
+    opacity: .92;
+    left: 50%;
+    margin-left: -120px;
+    top: 370px;
+}
+
+.dialog.pop{
+    -webkit-transform: scale(1.0);
+    -webkit-animation-name: pop;
+    -webkit-animation-duration: 300ms;
+    -webkit-animation-timing-function: ease-in-out
+}
+
+@-webkit-keyframes pop {
+  0%   { -webkit-transform: scale(0); }
+  70%  { -webkit-transform: scale(1.1); }
+  100% { -webkit-transform: scale(1.0); }
+}
+
+.dialog #title {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align:left;
+    font-weight: bold;
+    text-align: center;
+}
+
+.dialog #description {
+    font-size: 16px;
+    margin: 0px 0px 20px;
+    text-align:left;
+    font-weight: bold;
+    text-align: center;
+    line-height: 120%;
+}
+
+.dialog button {
+    color: #fff;
+    width:110px;
+    height: 35px;
+    font-style: bold;
+    white-space: nowrap;
+    text-align: center;
+    font: bold 16px "Helvetica Neue", "Arial", "sans-serif";
+    letter-spacing: 0.05em;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #233854;
+    background: rgb(0,0,0,0.8);
+    background: -webkit-gradient(linear, left top, left bottom, from(#969db0),to(#0A183B));
+    -webkit-box-shadow: 0px 1px 1px rgba(255,255,255, .7);
+    padding: 0px;
+    margin: 0px 5px 0px 5px;
+    opacity: 1.0;
+}
+
+.no-saved-folios {
+	color: #444444;
+	text-shadow: 0px 1px 0px rgb(255,255,255);
+	font-size: 20px;
+	padding-top: 100px;
+	text-align: center;
+}
+
+/* The styles for the debug textarea. This is commented out in appview. */
+.debug {
+	width: 400px;
+	height: 300px;
+	position: fixed;
+	top: 600px;
+}

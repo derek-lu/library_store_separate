@@ -1,0 +1,601 @@
+body {
+	font-family: Helvetica;
+	background-color: #DFDFDF;
+}
+
+/* Container for page contents so they do not shift when a text field has focus. */
+.fixed-container {
+	position: fixed;
+	background: url("../images/bg.png");
+	background-position: 0px 44px;
+}
+
+/* The black header at the top. */
+#header {
+	background: url("../images/header_bg.png");
+	width: 768px;
+	height: 44px;
+	-webkit-box-shadow: 0px 3px 40px rgba(0,0,0,0.4);
+	padding: 0px;
+}
+
+#header-logo {
+	background: url("../images/header_logo.png");
+	width: 99px;
+	height: 44px;
+	float: left;
+	margin-left: 5px;
+}
+
+#header #subscribe, #header #print-subscriber, #header #restore-all-purchases {
+	float: right;
+	font-weight: bold;
+	color: #ffffff;
+	font-size: 12px;
+	text-shadow: 0px 1px 0px rgb(0, 0, 0);
+	margin-left: 15px;
+	margin-top: 25px;
+}
+
+#header #restore-all-purchases {
+	margin-right: 5px;
+}
+
+#restore-dialog {
+	margin-left: -127px;
+}
+
+/* Styles for the subscription dialog. */
+.dialog {
+    position: fixed;
+    width: 240px;
+    padding: 10px 10px 10px 10px;
+    z-index: 10;
+    background: rgba(10, 24, 59, .85);
+    color: #FFFFFF;
+    text-align: center;
+    border: 2px solid #DEE1E6;
+    -webkit-border-radius: 15px;
+    -webkit-box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    -webkit-transform: scale(0);
+    left: 50%;
+    top: 300px;
+}
+
+.dialog.pop{
+    -webkit-transform: scale(1.0);
+      -webkit-animation-name: pop;
+      -webkit-animation-duration: 300ms;
+      -webkit-animation-timing-function: ease-in-out
+}
+
+@-webkit-keyframes pop {
+  0%   { -webkit-transform: scale(0); }
+  70%  { -webkit-transform: scale(1.1); }
+  100% { -webkit-transform: scale(1.0); }
+}
+
+.dialog #title {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 17px;
+    text-align:left;
+    font-weight: bold;
+    text-align: center;
+}
+
+.dialog #description {
+    font-size: 15px;
+    margin: 15px 0;
+    text-align:left;
+}
+
+.dialog #description {
+    font-size: 16px;
+    margin: 0px 0px 20px;
+    text-align:left;
+    text-align: center;
+    line-height: 120%;
+}
+
+.dialog button {
+    color: #fff;
+    width:110px;
+    height: 35px;
+    white-space: nowrap;
+    text-align: center;
+    font: bold 16px "Helvetica Neue", "Arial", "sans-serif";
+    letter-spacing: 0.05em;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #233854;
+    background: rgb(0,0,0);
+    background: -webkit-gradient(linear, left top, left bottom, from(#969db0),to(#0A183B));
+    -webkit-box-shadow: 0px 1px 1px rgba(255,255,255, .7);
+    padding: 0px;
+    margin: 0px 5px 0px 5px;
+    opacity: 1.0;
+	text-shadow: 0px 1px 0px rgb(0, 0, 0);
+}
+
+#subscribe-dialog {
+	width: 330px;
+	margin-left: -177px;
+	top: 200px;
+}
+
+#subscribe-dialog #description {
+	text-align: left;
+}
+
+#subscribe-dialog .subscribe-button {
+    background: url("../images/subscribe_btn_bg.png") 0 -4px repeat-x;
+    padding: 5px;
+    margin: 12px 2px 4px 1px;
+    color:#000000;
+    font-weight:bold;
+    font-size:16px;
+    border: 1px solid #CCC;
+    -webkit-border-radius: 10px;
+    border-radius: 5px;
+    opacity: 1.0;
+    display:block;
+    width: 315px;
+    height: 21px;
+}
+
+#subscribe-dialog button {
+    color: #fff;
+    width:100%;
+    font: bold 16px "Helvetica Neue", "Arial", "sans-serif";
+    letter-spacing: 0.05em;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #233854;
+    background: rgb(0,0,0);
+    background: -webkit-gradient(linear, left top, left bottom, from(#969db0),to(#0A183B));
+    -webkit-box-shadow: 0px 1px 1px rgba(255,255,255, .7);
+    box-shadow: 0px 1px 1px rgba(255, 255, 255, .7);
+    padding: 6px 25px;
+    min-width: 100px;
+    margin: 0;
+    opacity: 1.0;
+	margin-top: 15px;
+}
+
+.modal-background {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0);
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 9;
+}
+
+/* Container that holds the marquee. The marquee is the horizontal swipeable container at the top. */
+#marquee {
+	width: 768px;
+	height: 387px;
+	overflow: hidden;
+}
+
+/* Container that holds the pages of the marquee. */
+#marquee .pages {
+	white-space: nowrap;
+	height: 387px;
+}
+
+/* A page of the marquee. */
+#marquee .page {
+	width: 768px;
+	height: 387px;
+	float: left;
+	display: inline-block;
+	position: relative;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+#marquee .subscribe .text {
+	float: left;
+	display: inline;
+	width: 380px;
+	margin: 110px 0px 0px 30px;
+}
+
+#marquee .subscribe .title {
+	font-family: "Futura-Medium";
+	font-size: 41px;
+	color: #333333;
+	line-height: 110%;
+}
+
+#marquee .subscribe .sub-title {
+	font-family: "Futura-CondensedMedium";
+	font-size: 30px;
+	color: #333333;
+	padding-left: 3px;
+}
+
+#marquee .subscribe .date {
+	font-family: "Futura-CondensedMedium";
+	font-size: 16px;
+	color: #666666;
+	padding-left: 3px;
+}
+
+#marquee .subscribe .image {
+	float: right;
+	display: inline;
+	margin-top: 55px;
+	position: relative;
+	left: 9px;
+}
+
+#marquee .text {
+	float: left;
+	display: inline;
+	width: 400px;
+	margin: 100px 0px 0px 50px;
+}
+
+#marquee .title {
+	font-family: "Futura-Medium";
+	font-size: 45px;
+	color: #333333;
+	line-height: 110%;
+	width: 400px;
+	white-space: normal;
+}
+
+#marquee .sub-title {
+	font-family: "Futura-CondensedMedium";
+	font-size: 30px;
+	color: #333333;
+	padding-left: 3px;
+	width: 400px;
+	white-space: normal;
+}
+
+#marquee .date {
+	font-family: "Futura-CondensedMedium";
+	font-size: 16px;
+	color: #666666;
+	padding-left: 3px;
+}
+
+#marquee .image {
+	float: right;
+	display: inline;
+}
+
+/* The container for the download progress bar. */
+#marquee .download-status {
+	width: 153px;
+	height: 22px;
+	position: absolute;
+	padding-left: 3px;
+	padding-top: 15px;
+}
+
+/* The background track of the download status. */
+#marquee .progress-track {
+	background: url("../images/progress_track_120.png") no-repeat;
+	width: 120px;
+	height: 9px;
+	float: left;
+}
+
+#marquee .download-status-close, #marquee .download-status-restart {
+	width: 31px;
+	height: 31px;
+	float: right;
+	position: relative;
+	left: 0px;
+	top: -11px;
+}
+
+#marquee .state {
+	height: 15px;
+	font-size: 12px;
+	padding-left: 2px;
+}
+
+.black-button {
+	font-family: helvetica;
+	font-weight: bold;
+	font-size: 12px;
+	color: #ffffff;
+	text-align: center;
+	padding-top: 5px;
+	margin-top: 30px;
+	text-shadow: 0px 1px 0px rgb(0, 0, 0);
+	width: 69px;
+	height: 26px;
+	background: url("../images/button_black.png") no-repeat;
+	margin-left: 3px;
+}
+
+/* The canvas that displays the nav circles for the marquee. */
+#marquee .navStatus {
+	position: absolute;
+	top: 400px;
+	left: 0px;
+}
+
+/* #folios-overlay-top, #folios-overlay-right, #folios-overlay-left and #folios-overlay-bottom
+   create a border around the bottom grid of folios. */
+#folios-overlay-top {
+	background: url("../images/folios_overlay_top.png");
+	width: 768px;
+	height: 25px;
+	position: absolute;
+	top: 437px;
+	left: 5px;
+}
+
+#folios-overlay-right {
+	background: url("../images/folios_overlay_right.png");
+	width: 30px;
+	height: 458px;
+	position: absolute;
+	top: 462px;
+	left: 743px;
+}
+
+#folios-overlay-left {
+	background: url("../images/folios_overlay_left.png");
+	width: 30px;
+	height: 458px;
+	position: absolute;
+	top: 462px;
+	left: 5px;
+}
+
+#folios-overlay-bottom {
+	background: url("../images/folios_overlay_bottom.png");
+	width: 767px;
+	height: 18px;
+	position: absolute;
+	top: 920px;
+	left: 6px;
+}
+
+/* The canvas that displays the nav circles for the grid of folios. */
+#folios .navStatus {
+	position: absolute;
+	top: 935px;
+	left: 0px;
+}
+
+/* Container that holds the grid of folios. */
+#folios {
+	width: 745px;
+	height: 486px;
+	overflow: hidden;
+	margin-top: 16px;
+	margin-left: 16px;
+	margin-right: 16px;
+	background-color: #CFCFCF;
+}
+
+/* Container that holds the pages of the grid. */
+#folios .pages {
+	white-space: nowrap;
+	height: 486px;
+	background: url("../images/folios_bg.png");
+}
+
+/* A page within the grid of folios. */
+#folios .page {
+	width: 768px;
+	height: 387px;
+	float: left;
+	display: inline-block;
+	position: relative;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+/* Item renderer used to display an individual folio in the grid. */
+.folio-item-view {
+	width: 344px;
+	float: left;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	padding-left: 20px;
+	font-family: Helvetica;
+	font-weight: bold;
+	font-size: 15px;
+	color: #333333;
+	text-shadow: 0px 1px 0px rgb(255, 255, 255);
+}
+
+.folio-item-view .publication-date {
+	color: #555555;
+	font-size: 12px;
+}
+
+.folio-item-view img {
+	float: left;
+	-webkit-box-shadow: 3px 3px 4px rgba(0, 0, 0, .1);
+	margin-right: 20px;
+}
+
+.folio-item-view .text {
+	float: left;
+}
+
+.folio-item-view .magazine-title {
+	width: 215px;
+	height: 70px;
+	line-height: 120%;
+}
+
+/* The container for the download progress bar. The background greys out the folio cover. */
+.folio-item-view .download-status {
+	background: rgba(0, 0, 0, .4);
+	width: 83px;
+	height: 22px;
+	position: absolute;
+	padding-left: 7px;
+	padding-top: 103px;
+}
+
+/* The background track of the download status. */
+.folio-item-view .progress-track {
+	background: url("../images/progress_track_52.png") no-repeat;
+	width: 70px;
+	height: 10px;
+	float: left;
+	white-space: nowrap;
+}
+
+.progress-track div {
+	margin-right: 0px;
+	float: left;
+}
+
+.progress-bar-left {
+	background: url("../images/progress_bar_left.png") no-repeat;
+	width: 4px;
+	height: 10px;
+}
+
+.progress-bar-middle {
+	background: url("../images/progress_bar_middle.png");
+	height: 10px;
+}
+
+.progress-bar-right {
+	background: url("../images/progress_bar_right.png") no-repeat;
+	width: 4px;
+	height: 10px;
+}
+
+.folio-item-view .download-status-close, .folio-item-view .download-status-restart {
+	width: 31px;
+	height: 31px;
+	float: right;
+	position: relative;
+	left: 0px;
+	top: -20px;
+}
+
+.download-status-close {
+	background: url("../images/button_close.png") no-repeat;
+}
+
+.download-status-restart {
+	background: url("../images/button_restart.png") no-repeat;
+}
+
+/* The login dialog. */
+#login {
+	width: 280px;
+	position: absolute;
+    left: 50%;
+    margin-left: -160px;
+    top: 300px;
+	background: rgba(10, 24, 59, .9);
+    border: 2px solid #DEE1E6;
+    -webkit-border-radius: 15px;
+    -webkit-box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    -webkit-transform: scale(0);
+    opacity: .92;
+	padding: 20px;
+	color: #ffffff;
+}
+
+#login .title {
+	font-weight: bold;
+	font-size: 17px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+#login .description {
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+#login .links, #login a {
+	color: #ffffff;
+	font-size: 13px;
+}
+
+input[type="text"], input[type="password"] {
+	-webkit-appearance: none;
+	background-color: white;
+	border-color: rgb(159,159,159);
+	border-style: solid;
+	border-radius: 4px;
+	border-width: 1px;
+	color: black;
+	font-size: 14px;
+	outline-color: black;
+	outline-style: none;
+	outline-width: 0px;
+	padding: 0px 4px 4px 4px;
+	width: 270px;
+	height: 40px;
+	-webkit-appearance: none;
+	margin: 0px 0px 10px 0px;
+}
+
+#login .required {
+	position: relative;
+	top: -5px;
+	left: 3px;
+}
+
+#login.pop{
+    -webkit-transform: scale(1.0);
+    -webkit-animation-name: pop;
+    -webkit-animation-duration: 300ms;
+    -webkit-animation-timing-function: ease-in-out
+}
+
+#login .row {
+	margin-top: 10px;
+}
+
+#login .error {
+	color: rgb(255,0,0);
+	font-size: 13px;
+	font-weight: bold;
+	position: relative;
+	top: 8px;
+}
+
+.form-button {
+	text-shadow: 0px 1px 0px rgb(0, 0, 0);
+	width:123px;
+	height:30px;
+	border-color:rgb(51,51,51);
+	border-width:1px;
+	border-radius:4%/12%;
+	border-style:solid;
+	text-align: center;
+	color: #ffffff;
+	font-weight: bold;
+	padding-top: 9px;
+}
+
+.form-button-dark {
+	float: left;
+	background-image:-webkit-linear-gradient(-90deg,rgba(255,255,255,0.4) 0%,rgba(255,255,255,0.22) 16%,rgba(255,255,255,0.18) 46%,rgba(255,255,255,0.04) 47%,rgba(255,255,255,0.04) 100%);
+}
+
+.form-button-light {
+	float: right;
+	background-image:-webkit-linear-gradient(-90deg,rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.4) 46%,rgba(255,255,255,0.25) 47%,rgba(255,255,255,0.25) 100%);
+}
+
+/* The styles for the debug textarea. This is commented out in appview. */
+.debug {
+	width: 400px;
+	height: 200px;
+	position: absolute;
+	z-index: 9999;
+	opacity: .7;
+}

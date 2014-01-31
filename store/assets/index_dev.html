@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no,initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Store</title>
+<!--
+	The DPS library/store API.
+	This include should be commented out when testing on the desktop.
+-->
+<script src="AdobeLibraryAPI.js"></script>
+
+<!-- jQuery library. -->
+<script src="jquery-1.7.2.min.js"></script>
+
+<!-- Required library of utility functions for backbone. -->
+<script src="underscore-min.js"></script>
+
+<!-- Application framework. -->
+<script src="backbone-min.js"></script>
+
+<!-- Collection which stores the folio data for the store. -->
+<script src="src/collection/StoreCollection.js"></script>
+
+<!-- Displays pages horizontally allowing a user to swipe left/right -->
+<script src="src/view/controls/HorizontalPageContainer.js"></script>
+
+<!-- Dialog used to display the login form. -->
+<script src="src/view/dialogs/LoginDialog.js"></script>
+
+<!-- Dialog used to display "restore purchases" confirmation. -->
+<script src="src/view/dialogs/RestoreDialog.js"></script>
+
+<!-- Dialog used to display the subscription options. -->
+<script src="src/view/dialogs/SubscribeDialog.js"></script>
+
+<!-- Item renderer used to display a folio in the bottom grid. -->
+<script src="src/view/folio/FolioItemView.js"></script>
+
+<!-- Item renderer used to display a folio in the top marquee. -->
+<script src="src/view/folio/FolioMarqueeItemView.js"></script>
+
+<!-- The application file which handles the main view. -->
+<script src="src/view/AppView.js"></script>
+
+<!-- The main file which instantiates AppView. -->
+<script src="main.js"></script>
+
+<!-- Styles for offline. -->
+<link rel="stylesheet" href="offline.css" type="text/css">
+
+<!-- The styles for the page. -->
+<link rel="stylesheet" href="css/store.css" type="text/css">
+</head>
+<body>
+</body>
+</html>

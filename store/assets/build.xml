@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="store" >
+	<target name="concat" >
+		<concat destfile="store.js">
+			<filelist dir="src" files="collection/StoreCollection.js, view/controls/HorizontalPageContainer.js, view/dialogs/LoginDialog.js, view/dialogs/RestoreDialog.js, view/dialogs/SubscribeDialog.js, view/folio/FolioItemView.js, view/folio/FolioMarqueeItemView.js, view/AppView.js"/>
+		</concat>
+	</target>
+</project>
